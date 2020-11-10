@@ -30,6 +30,9 @@ $ npm run dev
 
 Aplikacija se potom pokreće na URL http://localhost:7777/
 
+- Za pregled aplikacije iz perspektive registriranog korisnika, dovoljno je izraditi korisnički račun s proizvoljnim podacima
+- Za pregled aplikacije iz perspektive administratora potrebno se prijaviti sa sljedećim podacima: email: demo@admin.net // password: d123
+
 ### Korištene Tehnologije
 #### Front end
 * [ReactJS](https://reactjs.org/): Javascript library za izgradnju korisničkih sučelja i UI komponenti
