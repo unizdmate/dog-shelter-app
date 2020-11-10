@@ -36,7 +36,7 @@ Aplikacija se potom pokreće na URL http://localhost:7777/
 ### Korištene Tehnologije
 #### Front end
 * [ReactJS](https://reactjs.org/): Javascript library za izgradnju korisničkih sučelja i UI komponenti
-* [NextJS](https://nextjs.org/): Reactov framework koji posjeduje intuitivni sustav usmjeravanja s podrškom za dinamičke rute.
+* [NextJS](https://nextjs.org/): Reactov framework koji posjeduje intuitivni sustav usmjeravanja s podrškom za dinamičke rute te SSR.
 * [React-Apollo](https://github.com/apollographql/react-apollo): Omogućuje dohvaćanje podataka s GraphQL poslužitelja te manipulaciju podataka s istog.
 * [Apollo-Client](https://www.apollographql.com/docs/react/api/core/ApolloClient/): Sveobuhvatan library za upravljanje stanjem u JavaScriptu, a koji omogućuje upravljanje lokalnim i udaljenim podacima s GraphQL-om.
 * [Styled-Components](https://www.styled-components.com/): Koristeći tagged template literale i CSS, Styled-Components omogućuje pisanje stvarnog CSS koda za oblikovanje React komponenata.
