@@ -1,0 +1,84 @@
+# import * from './generated/prisma.graphql'
+
+type SuccessMessage {
+  message: String
+}
+
+type Mutation {
+  createDog(
+    name: String
+    breed: String
+    description: String
+    image: String
+    largeImage: String
+  ): Dog!
+
+  updateDog(id: ID!, name: String, breed: String, description: String): Dog!
+
+  deleteDog(id: ID!): Dog
+
+  signup(email: String!, password: String!, name: String!): User!
+
+  signin(email: String!, password: String!): User!
+
+  signout: SuccessMessage
+
+  updateUser(id: ID!, name: String, email: String): User!
+
+  deleteUser(id: ID!): User
+
+  resetRequest(email: String!): SuccessMessage
+
+  resetPassword(
+    resetToken: String!
+    password: String!
+    confirmPassword: String!
+  ): User!
+
+  updatePermissions(permissions: [Permission], userId: ID!): User
+
+  adopt(
+    dogId: String!
+    dogName: String!
+    dogImage: String!
+    userId: String!
+    userName: String!
+    userEmail: String!
+    userPhoneNo: String!
+    userAddress: String
+    userAreaCode: String
+    userCity: String
+  ): AdoptedDog!
+
+  becomeFriend(
+    dogId: String!
+    dogName: String!
+    dogImage: String!
+    userId: String!
+    userName: String!
+    userEmail: String!
+    userPhoneNo: String!
+  ): FriendedDog!
+}
+
+type Query {
+  dogs(
+    where: DogWhereInput
+    orderBy: DogOrderByInput
+    skip: Int
+    first: Int
+  ): [Dog]!
+  dog(where: DogWhereUniqueInput!): Dog
+  dogsConnection(where: DogWhereInput): DogConnection!
+  currentUser: User
+  users: [User]!
+  adoptions: [AdoptedDog]
+  friends: [FriendedDog]
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  permissions: [Permission!]!
+}

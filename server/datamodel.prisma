@@ -1,0 +1,61 @@
+enum Permission {
+  ADMIN
+  USER
+  DOGCREATE
+  DOGUPDATE
+  DOGDELETE
+  PERMISSIONUPDATE
+}
+
+type User {
+  id: ID! @id
+  name: String!
+  email: String! @unique
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission]@scalarList(strategy: RELATION)
+}
+
+type Dog {
+  id: ID! @id
+  name: String!
+  breed: String
+  description: String!
+  image: String!
+  largeImage: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  user: User!
+}
+
+type AdoptedDog{
+  id: ID! @id
+  dogId: String!
+  dogName: String!
+  dogImage: String!
+  userId: String!
+  userName: String!
+  userEmail: String!
+  userPhoneNo: String!
+  userAddress: String
+  userAreaCode: String
+  userCity: String
+  user: User
+  createdAt: DateTime @createdAt
+  updatedAt: DateTime @updatedAt
+}
+
+type FriendedDog{
+  id: ID! @id
+  dogId: String!
+  dogName: String!
+  dogImage: String!
+  userId: String!
+  userName: String!
+  userEmail: String!
+  userPhoneNo: String!
+  user: User
+  createdAt: DateTime @createdAt
+  updatedAt: DateTime @updatedAt
+}

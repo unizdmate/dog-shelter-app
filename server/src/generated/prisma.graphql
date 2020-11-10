@@ -1,0 +1,3230 @@
+# source: https://eu1.prisma.sh/mate-krezic-e6d39f/dog-shelter/dev
+# timestamp: Tue Oct 06 2020 22:11:57 GMT+0200 (GMT+02:00)
+
+type AdoptedDog implements Node {
+  id: ID!
+  dogId: String!
+  dogName: String!
+  dogImage: String!
+  userId: String!
+  userName: String!
+  userEmail: String!
+  userPhoneNo: String!
+  userAddress: String
+  userAreaCode: String
+  userCity: String
+  user: User
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+"""
+A connection to a list of items.
+"""
+type AdoptedDogConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [AdoptedDogEdge]!
+  aggregate: AggregateAdoptedDog!
+}
+
+input AdoptedDogCreateInput {
+  id: ID
+  dogId: String!
+  dogName: String!
+  dogImage: String!
+  userId: String!
+  userName: String!
+  userEmail: String!
+  userPhoneNo: String!
+  userAddress: String
+  userAreaCode: String
+  userCity: String
+  user: UserCreateOneInput
+}
+
+"""
+An edge in a connection.
+"""
+type AdoptedDogEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: AdoptedDog!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum AdoptedDogOrderByInput {
+  id_ASC
+  id_DESC
+  dogId_ASC
+  dogId_DESC
+  dogName_ASC
+  dogName_DESC
+  dogImage_ASC
+  dogImage_DESC
+  userId_ASC
+  userId_DESC
+  userName_ASC
+  userName_DESC
+  userEmail_ASC
+  userEmail_DESC
+  userPhoneNo_ASC
+  userPhoneNo_DESC
+  userAddress_ASC
+  userAddress_DESC
+  userAreaCode_ASC
+  userAreaCode_DESC
+  userCity_ASC
+  userCity_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type AdoptedDogPreviousValues {
+  id: ID!
+  dogId: String!
+  dogName: String!
+  dogImage: String!
+  userId: String!
+  userName: String!
+  userEmail: String!
+  userPhoneNo: String!
+  userAddress: String
+  userAreaCode: String
+  userCity: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type AdoptedDogSubscriptionPayload {
+  mutation: MutationType!
+  node: AdoptedDog
+  updatedFields: [String!]
+  previousValues: AdoptedDogPreviousValues
+}
+
+input AdoptedDogSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [AdoptedDogSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [AdoptedDogSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [AdoptedDogSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: AdoptedDogWhereInput
+}
+
+input AdoptedDogUpdateInput {
+  dogId: String
+  dogName: String
+  dogImage: String
+  userId: String
+  userName: String
+  userEmail: String
+  userPhoneNo: String
+  userAddress: String
+  userAreaCode: String
+  userCity: String
+  user: UserUpdateOneInput
+}
+
+input AdoptedDogUpdateManyMutationInput {
+  dogId: String
+  dogName: String
+  dogImage: String
+  userId: String
+  userName: String
+  userEmail: String
+  userPhoneNo: String
+  userAddress: String
+  userAreaCode: String
+  userCity: String
+}
+
+input AdoptedDogWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [AdoptedDogWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [AdoptedDogWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [AdoptedDogWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
+  dogId: String
+
+  """
+  All values that are not equal to given value.
+  """
+  dogId_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  dogId_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  dogId_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  dogId_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  dogId_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  dogId_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  dogId_gte: String
+
+  """
+  All values containing the given string.
+  """
+  dogId_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  dogId_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  dogId_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  dogId_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  dogId_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  dogId_not_ends_with: String
+  dogName: String
+
+  """
+  All values that are not equal to given value.
+  """
+  dogName_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  dogName_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  dogName_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  dogName_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  dogName_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  dogName_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  dogName_gte: String
+
+  """
+  All values containing the given string.
+  """
+  dogName_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  dogName_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  dogName_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  dogName_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  dogName_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  dogName_not_ends_with: String
+  dogImage: String
+
+  """
+  All values that are not equal to given value.
+  """
+  dogImage_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  dogImage_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  dogImage_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  dogImage_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  dogImage_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  dogImage_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  dogImage_gte: String
+
+  """
+  All values containing the given string.
+  """
+  dogImage_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  dogImage_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  dogImage_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  dogImage_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  dogImage_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  dogImage_not_ends_with: String
+  userId: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userId_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userId_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userId_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userId_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userId_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userId_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userId_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userId_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userId_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userId_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userId_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userId_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userId_not_ends_with: String
+  userName: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userName_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userName_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userName_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userName_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userName_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userName_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userName_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userName_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userName_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userName_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userName_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userName_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userName_not_ends_with: String
+  userEmail: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userEmail_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userEmail_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userEmail_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userEmail_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userEmail_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userEmail_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userEmail_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userEmail_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userEmail_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userEmail_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userEmail_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userEmail_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userEmail_not_ends_with: String
+  userPhoneNo: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userPhoneNo_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userPhoneNo_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userPhoneNo_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userPhoneNo_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userPhoneNo_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userPhoneNo_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userPhoneNo_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userPhoneNo_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userPhoneNo_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userPhoneNo_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userPhoneNo_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userPhoneNo_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userPhoneNo_not_ends_with: String
+  userAddress: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userAddress_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userAddress_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userAddress_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userAddress_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userAddress_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userAddress_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userAddress_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userAddress_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userAddress_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userAddress_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userAddress_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userAddress_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userAddress_not_ends_with: String
+  userAreaCode: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userAreaCode_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userAreaCode_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userAreaCode_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userAreaCode_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userAreaCode_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userAreaCode_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userAreaCode_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userAreaCode_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userAreaCode_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userAreaCode_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userAreaCode_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userAreaCode_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userAreaCode_not_ends_with: String
+  userCity: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userCity_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userCity_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userCity_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userCity_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userCity_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userCity_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userCity_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userCity_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userCity_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userCity_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userCity_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userCity_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userCity_not_ends_with: String
+  createdAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  createdAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  createdAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  createdAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  createdAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  createdAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  createdAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  updatedAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  updatedAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  updatedAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  updatedAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  updatedAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  updatedAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  updatedAt_gte: DateTime
+  user: UserWhereInput
+}
+
+input AdoptedDogWhereUniqueInput {
+  id: ID
+}
+
+type AggregateAdoptedDog {
+  count: Int!
+}
+
+type AggregateDog {
+  count: Int!
+}
+
+type AggregateFriendedDog {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type BatchPayload {
+  """
+  The number of nodes that have been affected by the Batch operation.
+  """
+  count: Long!
+}
+
+scalar DateTime
+
+type Dog implements Node {
+  id: ID!
+  name: String!
+  breed: String
+  description: String!
+  image: String!
+  largeImage: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  user: User!
+}
+
+"""
+A connection to a list of items.
+"""
+type DogConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [DogEdge]!
+  aggregate: AggregateDog!
+}
+
+input DogCreateInput {
+  id: ID
+  name: String!
+  breed: String
+  description: String!
+  image: String!
+  largeImage: String!
+  user: UserCreateOneInput!
+}
+
+"""
+An edge in a connection.
+"""
+type DogEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: Dog!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum DogOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  breed_ASC
+  breed_DESC
+  description_ASC
+  description_DESC
+  image_ASC
+  image_DESC
+  largeImage_ASC
+  largeImage_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type DogPreviousValues {
+  id: ID!
+  name: String!
+  breed: String
+  description: String!
+  image: String!
+  largeImage: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type DogSubscriptionPayload {
+  mutation: MutationType!
+  node: Dog
+  updatedFields: [String!]
+  previousValues: DogPreviousValues
+}
+
+input DogSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [DogSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [DogSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [DogSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: DogWhereInput
+}
+
+input DogUpdateInput {
+  name: String
+  breed: String
+  description: String
+  image: String
+  largeImage: String
+  user: UserUpdateOneRequiredInput
+}
+
+input DogUpdateManyMutationInput {
+  name: String
+  breed: String
+  description: String
+  image: String
+  largeImage: String
+}
+
+input DogWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [DogWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [DogWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [DogWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
+  name: String
+
+  """
+  All values that are not equal to given value.
+  """
+  name_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  name_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  name_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  name_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  name_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  name_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  name_gte: String
+
+  """
+  All values containing the given string.
+  """
+  name_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  name_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  name_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  name_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  name_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  name_not_ends_with: String
+  breed: String
+
+  """
+  All values that are not equal to given value.
+  """
+  breed_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  breed_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  breed_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  breed_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  breed_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  breed_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  breed_gte: String
+
+  """
+  All values containing the given string.
+  """
+  breed_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  breed_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  breed_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  breed_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  breed_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  breed_not_ends_with: String
+  description: String
+
+  """
+  All values that are not equal to given value.
+  """
+  description_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  description_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  description_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  description_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  description_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  description_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  description_gte: String
+
+  """
+  All values containing the given string.
+  """
+  description_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  description_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  description_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  description_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  description_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  description_not_ends_with: String
+  image: String
+
+  """
+  All values that are not equal to given value.
+  """
+  image_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  image_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  image_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  image_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  image_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  image_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  image_gte: String
+
+  """
+  All values containing the given string.
+  """
+  image_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  image_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  image_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  image_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  image_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  image_not_ends_with: String
+  largeImage: String
+
+  """
+  All values that are not equal to given value.
+  """
+  largeImage_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  largeImage_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  largeImage_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  largeImage_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  largeImage_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  largeImage_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  largeImage_gte: String
+
+  """
+  All values containing the given string.
+  """
+  largeImage_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  largeImage_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  largeImage_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  largeImage_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  largeImage_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  largeImage_not_ends_with: String
+  createdAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  createdAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  createdAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  createdAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  createdAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  createdAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  createdAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  updatedAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  updatedAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  updatedAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  updatedAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  updatedAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  updatedAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  updatedAt_gte: DateTime
+  user: UserWhereInput
+}
+
+input DogWhereUniqueInput {
+  id: ID
+}
+
+type FriendedDog implements Node {
+  id: ID!
+  dogId: String!
+  dogName: String!
+  dogImage: String!
+  userId: String!
+  userName: String!
+  userEmail: String!
+  userPhoneNo: String!
+  user: User
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+"""
+A connection to a list of items.
+"""
+type FriendedDogConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [FriendedDogEdge]!
+  aggregate: AggregateFriendedDog!
+}
+
+input FriendedDogCreateInput {
+  id: ID
+  dogId: String!
+  dogName: String!
+  dogImage: String!
+  userId: String!
+  userName: String!
+  userEmail: String!
+  userPhoneNo: String!
+  user: UserCreateOneInput
+}
+
+"""
+An edge in a connection.
+"""
+type FriendedDogEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: FriendedDog!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum FriendedDogOrderByInput {
+  id_ASC
+  id_DESC
+  dogId_ASC
+  dogId_DESC
+  dogName_ASC
+  dogName_DESC
+  dogImage_ASC
+  dogImage_DESC
+  userId_ASC
+  userId_DESC
+  userName_ASC
+  userName_DESC
+  userEmail_ASC
+  userEmail_DESC
+  userPhoneNo_ASC
+  userPhoneNo_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type FriendedDogPreviousValues {
+  id: ID!
+  dogId: String!
+  dogName: String!
+  dogImage: String!
+  userId: String!
+  userName: String!
+  userEmail: String!
+  userPhoneNo: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type FriendedDogSubscriptionPayload {
+  mutation: MutationType!
+  node: FriendedDog
+  updatedFields: [String!]
+  previousValues: FriendedDogPreviousValues
+}
+
+input FriendedDogSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [FriendedDogSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [FriendedDogSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [FriendedDogSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: FriendedDogWhereInput
+}
+
+input FriendedDogUpdateInput {
+  dogId: String
+  dogName: String
+  dogImage: String
+  userId: String
+  userName: String
+  userEmail: String
+  userPhoneNo: String
+  user: UserUpdateOneInput
+}
+
+input FriendedDogUpdateManyMutationInput {
+  dogId: String
+  dogName: String
+  dogImage: String
+  userId: String
+  userName: String
+  userEmail: String
+  userPhoneNo: String
+}
+
+input FriendedDogWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [FriendedDogWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [FriendedDogWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [FriendedDogWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
+  dogId: String
+
+  """
+  All values that are not equal to given value.
+  """
+  dogId_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  dogId_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  dogId_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  dogId_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  dogId_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  dogId_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  dogId_gte: String
+
+  """
+  All values containing the given string.
+  """
+  dogId_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  dogId_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  dogId_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  dogId_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  dogId_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  dogId_not_ends_with: String
+  dogName: String
+
+  """
+  All values that are not equal to given value.
+  """
+  dogName_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  dogName_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  dogName_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  dogName_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  dogName_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  dogName_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  dogName_gte: String
+
+  """
+  All values containing the given string.
+  """
+  dogName_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  dogName_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  dogName_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  dogName_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  dogName_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  dogName_not_ends_with: String
+  dogImage: String
+
+  """
+  All values that are not equal to given value.
+  """
+  dogImage_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  dogImage_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  dogImage_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  dogImage_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  dogImage_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  dogImage_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  dogImage_gte: String
+
+  """
+  All values containing the given string.
+  """
+  dogImage_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  dogImage_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  dogImage_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  dogImage_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  dogImage_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  dogImage_not_ends_with: String
+  userId: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userId_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userId_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userId_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userId_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userId_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userId_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userId_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userId_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userId_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userId_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userId_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userId_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userId_not_ends_with: String
+  userName: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userName_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userName_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userName_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userName_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userName_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userName_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userName_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userName_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userName_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userName_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userName_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userName_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userName_not_ends_with: String
+  userEmail: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userEmail_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userEmail_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userEmail_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userEmail_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userEmail_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userEmail_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userEmail_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userEmail_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userEmail_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userEmail_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userEmail_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userEmail_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userEmail_not_ends_with: String
+  userPhoneNo: String
+
+  """
+  All values that are not equal to given value.
+  """
+  userPhoneNo_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  userPhoneNo_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  userPhoneNo_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  userPhoneNo_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  userPhoneNo_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  userPhoneNo_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  userPhoneNo_gte: String
+
+  """
+  All values containing the given string.
+  """
+  userPhoneNo_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  userPhoneNo_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  userPhoneNo_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  userPhoneNo_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  userPhoneNo_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  userPhoneNo_not_ends_with: String
+  createdAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  createdAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  createdAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  createdAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  createdAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  createdAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  createdAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  updatedAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  updatedAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  updatedAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  updatedAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  updatedAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  updatedAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  updatedAt_gte: DateTime
+  user: UserWhereInput
+}
+
+input FriendedDogWhereUniqueInput {
+  id: ID
+}
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values.
+Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Mutation {
+  createDog(data: DogCreateInput!): Dog!
+  createAdoptedDog(data: AdoptedDogCreateInput!): AdoptedDog!
+  createFriendedDog(data: FriendedDogCreateInput!): FriendedDog!
+  createUser(data: UserCreateInput!): User!
+  updateDog(data: DogUpdateInput!, where: DogWhereUniqueInput!): Dog
+  updateAdoptedDog(
+    data: AdoptedDogUpdateInput!
+    where: AdoptedDogWhereUniqueInput!
+  ): AdoptedDog
+  updateFriendedDog(
+    data: FriendedDogUpdateInput!
+    where: FriendedDogWhereUniqueInput!
+  ): FriendedDog
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  deleteDog(where: DogWhereUniqueInput!): Dog
+  deleteAdoptedDog(where: AdoptedDogWhereUniqueInput!): AdoptedDog
+  deleteFriendedDog(where: FriendedDogWhereUniqueInput!): FriendedDog
+  deleteUser(where: UserWhereUniqueInput!): User
+  upsertDog(
+    where: DogWhereUniqueInput!
+    create: DogCreateInput!
+    update: DogUpdateInput!
+  ): Dog!
+  upsertAdoptedDog(
+    where: AdoptedDogWhereUniqueInput!
+    create: AdoptedDogCreateInput!
+    update: AdoptedDogUpdateInput!
+  ): AdoptedDog!
+  upsertFriendedDog(
+    where: FriendedDogWhereUniqueInput!
+    create: FriendedDogCreateInput!
+    update: FriendedDogUpdateInput!
+  ): FriendedDog!
+  upsertUser(
+    where: UserWhereUniqueInput!
+    create: UserCreateInput!
+    update: UserUpdateInput!
+  ): User!
+  updateManyDogs(
+    data: DogUpdateManyMutationInput!
+    where: DogWhereInput
+  ): BatchPayload!
+  updateManyAdoptedDogs(
+    data: AdoptedDogUpdateManyMutationInput!
+    where: AdoptedDogWhereInput
+  ): BatchPayload!
+  updateManyFriendedDogs(
+    data: FriendedDogUpdateManyMutationInput!
+    where: FriendedDogWhereInput
+  ): BatchPayload!
+  updateManyUsers(
+    data: UserUpdateManyMutationInput!
+    where: UserWhereInput
+  ): BatchPayload!
+  deleteManyDogs(where: DogWhereInput): BatchPayload!
+  deleteManyAdoptedDogs(where: AdoptedDogWhereInput): BatchPayload!
+  deleteManyFriendedDogs(where: FriendedDogWhereInput): BatchPayload!
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+"""
+An object with an ID
+"""
+interface Node {
+  """
+  The id of the object.
+  """
+  id: ID!
+}
+
+"""
+Information about pagination in a connection.
+"""
+type PageInfo {
+  """
+  When paginating forwards, are there more items?
+  """
+  hasNextPage: Boolean!
+
+  """
+  When paginating backwards, are there more items?
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  When paginating backwards, the cursor to continue.
+  """
+  startCursor: String
+
+  """
+  When paginating forwards, the cursor to continue.
+  """
+  endCursor: String
+}
+
+enum Permission {
+  ADMIN
+  USER
+  DOGCREATE
+  DOGUPDATE
+  DOGDELETE
+  PERMISSIONUPDATE
+}
+
+type Query {
+  dogs(
+    where: DogWhereInput
+    orderBy: DogOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Dog]!
+  adoptedDogs(
+    where: AdoptedDogWhereInput
+    orderBy: AdoptedDogOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [AdoptedDog]!
+  friendedDogs(
+    where: FriendedDogWhereInput
+    orderBy: FriendedDogOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [FriendedDog]!
+  users(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [User]!
+  dog(where: DogWhereUniqueInput!): Dog
+  adoptedDog(where: AdoptedDogWhereUniqueInput!): AdoptedDog
+  friendedDog(where: FriendedDogWhereUniqueInput!): FriendedDog
+  user(where: UserWhereUniqueInput!): User
+  dogsConnection(
+    where: DogWhereInput
+    orderBy: DogOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): DogConnection!
+  adoptedDogsConnection(
+    where: AdoptedDogWhereInput
+    orderBy: AdoptedDogOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): AdoptedDogConnection!
+  friendedDogsConnection(
+    where: FriendedDogWhereInput
+    orderBy: FriendedDogOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): FriendedDogConnection!
+  usersConnection(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): UserConnection!
+
+  """
+  Fetches an object given its ID
+  """
+  node(
+    """
+    The ID of an object
+    """
+    id: ID!
+  ): Node
+}
+
+type Subscription {
+  dog(where: DogSubscriptionWhereInput): DogSubscriptionPayload
+  adoptedDog(
+    where: AdoptedDogSubscriptionWhereInput
+  ): AdoptedDogSubscriptionPayload
+  friendedDog(
+    where: FriendedDogSubscriptionWhereInput
+  ): FriendedDogSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type User implements Node {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission!]!
+}
+
+"""
+A connection to a list of items.
+"""
+type UserConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  id: ID
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserCreatepermissionsInput
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreatepermissionsInput {
+  set: [Permission!]
+}
+
+"""
+An edge in a connection.
+"""
+type UserEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: User!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  email_ASC
+  email_DESC
+  password_ASC
+  password_DESC
+  resetToken_ASC
+  resetToken_DESC
+  resetTokenExpiry_ASC
+  resetTokenExpiry_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission!]!
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [UserSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [UserSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [UserSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+}
+
+input UserUpdateDataInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
+input UserUpdateInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
+input UserUpdateManyMutationInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
+input UserUpdateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+}
+
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+}
+
+input UserUpdatepermissionsInput {
+  set: [Permission!]
+}
+
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
+}
+
+input UserWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [UserWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [UserWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [UserWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
+  name: String
+
+  """
+  All values that are not equal to given value.
+  """
+  name_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  name_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  name_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  name_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  name_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  name_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  name_gte: String
+
+  """
+  All values containing the given string.
+  """
+  name_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  name_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  name_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  name_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  name_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  name_not_ends_with: String
+  email: String
+
+  """
+  All values that are not equal to given value.
+  """
+  email_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  email_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  email_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  email_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  email_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  email_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  email_gte: String
+
+  """
+  All values containing the given string.
+  """
+  email_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  email_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  email_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  email_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  email_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  email_not_ends_with: String
+  password: String
+
+  """
+  All values that are not equal to given value.
+  """
+  password_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  password_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  password_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  password_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  password_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  password_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  password_gte: String
+
+  """
+  All values containing the given string.
+  """
+  password_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  password_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  password_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  password_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  password_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  password_not_ends_with: String
+  resetToken: String
+
+  """
+  All values that are not equal to given value.
+  """
+  resetToken_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  resetToken_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  resetToken_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  resetToken_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  resetToken_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  resetToken_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  resetToken_gte: String
+
+  """
+  All values containing the given string.
+  """
+  resetToken_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  resetToken_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  resetToken_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  resetToken_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  resetToken_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  resetToken_not_ends_with: String
+  resetTokenExpiry: Float
+
+  """
+  All values that are not equal to given value.
+  """
+  resetTokenExpiry_not: Float
+
+  """
+  All values that are contained in given list.
+  """
+  resetTokenExpiry_in: [Float!]
+
+  """
+  All values that are not contained in given list.
+  """
+  resetTokenExpiry_not_in: [Float!]
+
+  """
+  All values less than the given value.
+  """
+  resetTokenExpiry_lt: Float
+
+  """
+  All values less than or equal the given value.
+  """
+  resetTokenExpiry_lte: Float
+
+  """
+  All values greater than the given value.
+  """
+  resetTokenExpiry_gt: Float
+
+  """
+  All values greater than or equal the given value.
+  """
+  resetTokenExpiry_gte: Float
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  email: String
+}
